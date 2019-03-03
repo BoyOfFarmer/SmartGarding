@@ -59,6 +59,11 @@ export default class Home extends Component {
               <Text>Chấm bài</Text>
             </Button>
             <Row style={{height: 20 }}></Row>
+            <Button block info onPress={() => this.props.navigation.navigate('ImageBrowserScreen')}>
+              <Icon type="AntDesign" name='form'  />
+              <Text>Gallery</Text>
+            </Button>
+            <Row style={{height: 20 }}></Row>
             <Button block info>
               <Icon type="SimpleLineIcons" name='doc' />
               <Text>Mẫu phiếu</Text>

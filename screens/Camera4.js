@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Slider, Image,CameraRoll } from 'react-native';
-// eslint-disable-next-line import/no-unresolved
 import { RNCamera } from 'react-native-camera';
 
 const flashModeOrder = {
@@ -85,9 +83,11 @@ export default class Camera4 extends React.Component {
       const data = await this.camera.takePictureAsync();
       const {uri, base64} = data;
       this.setState({imageData: {uri,base64} });
-      CameraRoll.saveToCameraRoll(data.uri, 'photo');
+      CameraRoll.saveToCameraRoll(data.uri);
     }
   };
+
+
 
   renderCamera() {
     return (
@@ -119,6 +119,7 @@ export default class Camera4 extends React.Component {
           >
             <Text style={styles.flipText}> SNAP </Text>
           </TouchableOpacity>
+
         </View>
       </RNCamera>
     );

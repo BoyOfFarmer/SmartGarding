@@ -7,11 +7,13 @@ import Camera2 from './Camera2';
 import Camera0 from './Camera0';
 import Camera3 from './Camera3';
 import Camera4 from './Camera4';
+import ImageBrowser from './ImageBrowser';
 
 const AppNavigator = createStackNavigator({
   HomeScreen: {screen: Home},
   GradingScreen: {screen: Grading},
   CameraScreen: {screen: Camera4},
+  ImageBrowserScreen: {screen: ImageBrowser},
 });
 
 
