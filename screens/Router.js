@@ -8,12 +8,16 @@ import Camera0 from './Camera0';
 import Camera3 from './Camera3';
 import Camera4 from './Camera4';
 import ImageBrowser from './ImageBrowser';
+import ClassList from './ClassList';
+import ClassCreate from './ClassCreate';
 
 const AppNavigator = createStackNavigator({
   HomeScreen: {screen: Home},
   GradingScreen: {screen: Grading},
   CameraScreen: {screen: Camera4},
   ImageBrowserScreen: {screen: ImageBrowser},
+  ClassListScreen: {screen: ClassList},
+  ClassCreateScreen: {screen: ClassCreate},
 });
 
 

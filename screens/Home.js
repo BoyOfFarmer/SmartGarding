@@ -54,7 +54,7 @@ export default class Home extends Component {
 
         <Content padder>
             <Row style={{height: 100 }}></Row>
-            <Button block info onPress={() => this.props.navigation.navigate('CameraScreen')}>
+            <Button block info onPress={() => this.props.navigation.navigate('ClassListScreen')}>
               <Icon type="AntDesign" name='form'  />
               <Text>Chấm bài</Text>
             </Button>
