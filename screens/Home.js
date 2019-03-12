@@ -5,7 +5,15 @@ import GuideScreen from './GuideScreen'
 import SettingScreen from './SettingScreen'
 import InfoScreen from './InfoScreen'
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-
+import Grading from './Grading';
+import Cam from './Camera';
+import Camera2 from './Camera2';
+import Camera0 from './Camera0';
+import Camera3 from './Camera3';
+import Camera4 from './Camera4';
+import ImageBrowser from './ImageBrowser';
+import ClassList from './ClassList';
+import ClassCreate from './ClassCreate';
 
 class Home extends Component {
   static navigationOptions = {
@@ -114,6 +122,11 @@ const appNavigator = createStackNavigator({
   Info: {
     screen: InfoScreen
   },
+  GradingScreen: {screen: Grading},
+  CameraScreen: {screen: Camera4},
+  ImageBrowserScreen: {screen: ImageBrowser},
+  ClassListScreen: {screen: ClassList},
+  ClassCreateScreen: {screen: ClassCreate},
 }, {
     initialRouteName: "Home"
   })
