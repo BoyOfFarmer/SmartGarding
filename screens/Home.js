@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, View,StatusBar,PermissionsAndroid, Platform} from 'react-native';
 import { Col, Row, Grid, Footer, FooterTab, Container, Header, Title, Left, Icon, Right, Button, Body, Content,Text, Card, CardItem } from 'native-base';
+import GuideScreen from './GuideScreen'
+
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 
-export default class Home extends Component {
+class Home extends Component {
   static navigationOptions = {
-    header : null
+    header : null,
   };
   // componentDidMount = () => {
   //   //Checking for the permission just after component loaded
@@ -41,15 +44,20 @@ export default class Home extends Component {
       <Container>
 
         <Header>
-          <Left>
+          <Left style={{flex:1}}>
             <Button transparent>
               <Icon name='menu' />
             </Button>
           </Left>
-          <Body>
-            <Title>ExScanner</Title>
+          <Body style={{flex:1}}>
+            <Title >ExScanner</Title>
           </Body>
-          <Right />
+          <Right style={{flex:1}}>
+            <Button onPress={()=>this.props.navigation.navigate('Guide')}>
+              <Icon name='guide'/>
+              
+            </Button>
+          </Right>
         </Header>
 
         <Content padder>
@@ -92,3 +100,16 @@ export default class Home extends Component {
     );
   }
 }
+const appNavigator=createStackNavigator({
+  Home:{
+    screen:Home
+  },
+  Guide:{
+    screen:GuideScreen
+  }
+},{
+  initialRouteName: "Home"
+})
+
+export default createAppContainer(appNavigator);
+
