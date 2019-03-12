@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {StyleSheet, View,StatusBar,PermissionsAndroid, Platform} from 'react-native';
-import { Col, Row, Grid, Footer, FooterTab, Container, Header, Title, Left, Icon, Right, Button, Body, Content,Text, Card, CardItem } from 'native-base';
+import React, { Component } from 'react';
+import { StyleSheet, View, StatusBar, PermissionsAndroid, Platform } from 'react-native';
+import { Col, Row, Grid, Footer, FooterTab, Container, Header, Title, Left, Icon, Right, Button, Body, Content, Text, Card, CardItem } from 'native-base';
 import GuideScreen from './GuideScreen'
-
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import SettingScreen from './SettingScreen'
+import InfoScreen from './InfoScreen'
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
 class Home extends Component {
   static navigationOptions = {
-    header : null,
+    header: null,
   };
   // componentDidMount = () => {
   //   //Checking for the permission just after component loaded
@@ -39,53 +40,53 @@ class Home extends Component {
   //    }
   // }
   render() {
-    const {navigate} = this.props.navigation;
-    return(
+    const { navigate } = this.props.navigation;
+    return (
       <Container>
 
         <Header>
-          <Left style={{flex:1}}>
-            <Button transparent>
+          <Left style={{ flex: 1 }}>
+            <Button transparent onPress={() => this.props.navigation.navigate('Setting')}>
               <Icon name='menu' />
             </Button>
           </Left>
-          <Body style={{flex:1}}>
-            <Title >ExScanner</Title>
+          <Body style={{ flex: 1 }}>
+            <Title >SmartGrading</Title>
           </Body>
-          <Right style={{flex:1}}>
-            <Button onPress={()=>this.props.navigation.navigate('Guide')}>
-              <Icon name='guide'/>
-              
+          <Right style={{ flex: 1 }}>
+            <Button onPress={() => this.props.navigation.navigate('Guide')}>
+              <Icon name='guide' />
+
             </Button>
           </Right>
         </Header>
 
         <Content padder>
-            <Row style={{height: 100 }}></Row>
-            <Button block info onPress={() => this.props.navigation.navigate('ClassListScreen')}>
-              <Icon type="AntDesign" name='form'  />
-              <Text>Chấm bài</Text>
-            </Button>
-            <Row style={{height: 20 }}></Row>
-            <Button block info onPress={() => this.props.navigation.navigate('ImageBrowserScreen')}>
-              <Icon type="AntDesign" name='form'  />
-              <Text>Gallery</Text>
-            </Button>
-            <Row style={{height: 20 }}></Row>
-            <Button block info>
-              <Icon type="SimpleLineIcons" name='doc' />
-              <Text>Mẫu phiếu</Text>
-            </Button>
-            <Row style={{height: 20 }}></Row>
-            <Button block info>
-              <Icon type="AntDesign" name='sharealt' />
-              <Text>Chia sẻ</Text>
-            </Button>
-            <Row style={{height: 20 }}></Row>
-            <Button block info>
-              <Icon type="FontAwesome" name='user-o' />
-              <Text>Về chúng tôi</Text>
-            </Button>
+          <Row style={{ height: 100 }}></Row>
+          <Button block info onPress={() => this.props.navigation.navigate('ClassListScreen')}>
+            <Icon type="AntDesign" name='form' />
+            <Text>Chấm bài</Text>
+          </Button>
+          <Row style={{ height: 20 }}></Row>
+          <Button block info onPress={() => this.props.navigation.navigate('ImageBrowserScreen')}>
+            <Icon type="AntDesign" name='form' />
+            <Text>Gallery</Text>
+          </Button>
+          <Row style={{ height: 20 }}></Row>
+          <Button block info>
+            <Icon type="SimpleLineIcons" name='doc' />
+            <Text>Mẫu phiếu</Text>
+          </Button>
+          <Row style={{ height: 20 }}></Row>
+          <Button block info>
+            <Icon type="AntDesign" name='sharealt' />
+            <Text>Chia sẻ</Text>
+          </Button>
+          <Row style={{ height: 20 }}></Row>
+          <Button block info onPress={() => this.props.navigation.navigate('Info')}>
+            <Icon type="FontAwesome" name='user-o' />
+            <Text>Về chúng tôi</Text>
+          </Button>
         </Content>
 
         <Footer>
@@ -100,16 +101,22 @@ class Home extends Component {
     );
   }
 }
-const appNavigator=createStackNavigator({
-  Home:{
-    screen:Home
+const appNavigator = createStackNavigator({
+  Home: {
+    screen: Home
   },
-  Guide:{
-    screen:GuideScreen
-  }
-},{
-  initialRouteName: "Home"
-})
+  Guide: {
+    screen: GuideScreen
+  },
+  Setting: {
+    screen: SettingScreen
+  },
+  Info: {
+    screen: InfoScreen
+  },
+}, {
+    initialRouteName: "Home"
+  })
 
 export default createAppContainer(appNavigator);
 
