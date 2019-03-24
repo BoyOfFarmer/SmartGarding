@@ -3,6 +3,12 @@ package com.exscanner;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
+import com.horcrux.svg.SvgPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.rnfs.RNFSPackage;
+import org.reactnative.camera.RNCameraPackage;
 import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
 import com.imagepicker.ImagePickerPackage;
@@ -27,12 +33,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeDocumentPicker(),
             new SvgPackage(),
-            new RNFSPackage(),
             new ImagePickerPackage(),
             new RNGestureHandlerPackage(),
-          new RNCameraPackage()
-
+            new RNFSPackage(),
+            new RNCameraPackage()
       );
     }
 

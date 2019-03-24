@@ -10,6 +10,10 @@ import Camera4 from './Camera4';
 import ImageBrowser from './ImageBrowser';
 import ClassList from './ClassList';
 import ClassCreate from './ClassCreate';
+import GuideScreen from './GuideScreen'
+import SettingScreen from './SettingScreen'
+import InfoScreen from './InfoScreen'
+import PatternForm from './PatternForm'
 
 const AppNavigator = createStackNavigator({
   HomeScreen: {screen: Home},
@@ -18,8 +22,21 @@ const AppNavigator = createStackNavigator({
   ImageBrowserScreen: {screen: ImageBrowser},
   ClassListScreen: {screen: ClassList},
   ClassCreateScreen: {screen: ClassCreate},
+  Guide: {
+    screen: GuideScreen
+  },
+  Setting: {
+    screen: SettingScreen
+  },
+  Info: {
+    screen: InfoScreen
+  },
+  Pattern: {
+    screen: PatternForm
+  },
+},{
+  initialRouteName: "HomeScreen"
 });
-
 
 const Router = createAppContainer(AppNavigator);
 export default Router;

@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, PermissionsAndroid, Platform } from 'react-native';
+import { StyleSheet, View, StatusBar, PermissionsAndroid, Platform, Share } from 'react-native';
 import { Col, Row, Grid, Footer, FooterTab, Container, Header, Title, Left, Icon, Right, Button, Body, Content, Text, Card, CardItem } from 'native-base';
-import GuideScreen from './GuideScreen'
-import SettingScreen from './SettingScreen'
-import InfoScreen from './InfoScreen'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import Grading from './Grading';
-import Cam from './Camera';
-import Camera2 from './Camera2';
-import Camera0 from './Camera0';
-import Camera3 from './Camera3';
-import Camera4 from './Camera4';
-import ImageBrowser from './ImageBrowser';
-import ClassList from './ClassList';
-import ClassCreate from './ClassCreate';
 
-class Home extends Component {
+
+
+export default class Home extends Component {
   static navigationOptions = {
     header: null,
   };
@@ -47,6 +36,27 @@ class Home extends Component {
   //        alert('IOS device found');
   //    }
   // }
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'SmartGading is a good product',
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -81,12 +91,12 @@ class Home extends Component {
             <Text>Gallery</Text>
           </Button>
           <Row style={{ height: 20 }}></Row>
-          <Button block info>
+          <Button block info onPress={() => this.props.navigation.navigate('Pattern')}>
             <Icon type="SimpleLineIcons" name='doc' />
             <Text>Mẫu phiếu</Text>
           </Button>
           <Row style={{ height: 20 }}></Row>
-          <Button block info>
+          <Button block info onPress={this.onShare} title="Share">
             <Icon type="AntDesign" name='sharealt' />
             <Text>Chia sẻ</Text>
           </Button>
@@ -109,27 +119,6 @@ class Home extends Component {
     );
   }
 }
-const appNavigator = createStackNavigator({
-  Home: {
-    screen: Home
-  },
-  Guide: {
-    screen: GuideScreen
-  },
-  Setting: {
-    screen: SettingScreen
-  },
-  Info: {
-    screen: InfoScreen
-  },
-  GradingScreen: {screen: Grading},
-  CameraScreen: {screen: Camera4},
-  ImageBrowserScreen: {screen: ImageBrowser},
-  ClassListScreen: {screen: ClassList},
-  ClassCreateScreen: {screen: ClassCreate},
-}, {
-    initialRouteName: "Home"
-  })
 
-export default createAppContainer(appNavigator);
+
 
