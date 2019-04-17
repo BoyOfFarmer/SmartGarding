@@ -91,9 +91,14 @@ export default class Home extends Component {
             <Text>Gallery</Text>
           </Button>
           <Row style={{ height: 20 }}></Row>
+          <Button block info onPress={() => this.props.navigation.navigate('Student')}>
+            <Icon type="FontAwesome" name='user-o' />
+            <Text>Student</Text>
+          </Button>
+          <Row style={{ height: 20 }}></Row>
           <Button block info onPress={() => this.props.navigation.navigate('Pattern')}>
             <Icon type="SimpleLineIcons" name='doc' />
-            <Text>Mẫu phiếu</Text>
+            <Text>Setting Result</Text>
           </Button>
           <Row style={{ height: 20 }}></Row>
           <Button block info onPress={this.onShare} title="Share">

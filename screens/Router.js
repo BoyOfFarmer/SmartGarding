@@ -14,7 +14,8 @@ import GuideScreen from './GuideScreen'
 import SettingScreen from './SettingScreen'
 import InfoScreen from './InfoScreen'
 import PatternForm from './PatternForm'
-
+import StudentScreen from './StudentScreen'
+import NewStudent from './NewStudent'
 const AppNavigator = createStackNavigator({
   HomeScreen: {screen: Home},
   GradingScreen: {screen: Grading},
@@ -33,6 +34,12 @@ const AppNavigator = createStackNavigator({
   },
   Pattern: {
     screen: PatternForm
+  },
+  Student: {
+    screen: StudentScreen
+  },
+  NewStudent: {
+    screen: NewStudent
   },
 },{
   initialRouteName: "HomeScreen"

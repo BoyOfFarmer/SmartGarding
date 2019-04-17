@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, View,StatusBar,AppRegistry} from 'react-native';
 import { Container, Header, Title, Left, Icon, Right, Button, Body, Content,Text, Card, CardItem } from 'native-base';
 import Router from './screens/Router';
-import Home from './screens/Home'
 export default class App extends Component{
   render() {
     return (
